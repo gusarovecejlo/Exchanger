@@ -7,3 +7,12 @@ node_js:
 branches:
   only:
     - master
+
+deploy:
+  provider: heroku
+  app: "exchanger-r-app"
+  api_key:
+    secure: "5f236b4e-d469-4501-9c26-309aca54229f"
+
+script:
+- echo "skipping tests"
