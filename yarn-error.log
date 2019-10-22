@@ -1,0 +1,58 @@
+Arguments: 
+  /usr/local/Cellar/node/12.1.0/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add html-webpack-plugin -D
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Apple/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/vecejlo/PycharmProjects/Exchanger/node_modules/.bin:/Users/vecejlo/Library/Android/sdk/tools:/Users/vecejlo/Library/Android/sdk/platform-tools:/Users/vecejlo/Library/Android/sdk/tools:/Users/vecejlo/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  10.15.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/vecejlo/PycharmProjects/Exchanger/node_modules/@babel/core/node_modules/source-map'
+
+npm manifest: 
+  {
+    "name": "Exchanger",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "webpack --mode development",
+      "build": "webpack --mode production"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@babel/core": "^7.6.4",
+      "@babel/preset-env": "^7.6.3",
+      "@types/react": "^16.9.9",
+      "@types/react-dom": "^16.9.2",
+      "babel-loader": "^8.0.6",
+      "html-webpack-plugin": "^3.2.0",
+      "nodemon": "^1.19.4",
+      "source-map-loader": "^0.2.4",
+      "ts-loader": "^6.2.0",
+      "typescript": "^3.6.4",
+      "webpack": "^4.41.2",
+      "webpack-cli": "^3.3.9",
+      "webpack-dev-server": "^3.9.0"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "react": "^16.10.2",
+      "react-dom": "^16.10.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
