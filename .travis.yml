@@ -16,7 +16,7 @@ deploy:
 
 install: 
   - echo "skipping tests"
-  - npm run start
+  - npm install
 
 script:
-  "npm run"
+  "npm run start"
