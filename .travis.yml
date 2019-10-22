@@ -2,11 +2,11 @@ sudo: false
 
 language: node_js
 node_js:
-  - 9
+  - "stable"
 
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
 deploy:
   provider: heroku
@@ -14,5 +14,9 @@ deploy:
   api_key:
     secure: "5f236b4e-d469-4501-9c26-309aca54229f"
 
+install: 
+  - echo "skipping tests"
+  - npm run start
+
 script:
-- echo "skipping tests"
+  "index.html"
