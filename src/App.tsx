@@ -1,31 +1,14 @@
 import * as React from "react"
 
-
-//TODO нужно тут все подчистить и вправить на место, сейчас не работает, потому что я еще не доконца заюзал TS
-
-interface MyProps {
+export interface MyProps {
     data: object,
     Valute: object,
-    EUR: object
+    EUR?: any
 }
 
-interface MyState {
-    data: object,
-    Valute: object,
-    EUR: object
-}
+interface MyState {}
 
-export class Hello extends React.Component<MyProps, MyState> {
-    public state: MyState = {
-        data: {
-            Valute: {
-                EUR: {}
-            }
-        }
-    }
-    // state = {
-
-    // }
+export default class App extends React.Component<MyProps, MyState> {
 
     componentDidMount(): void {
         fetch('https://www.cbr-xml-daily.ru/daily_json.js', {
@@ -37,9 +20,7 @@ export class Hello extends React.Component<MyProps, MyState> {
     }
 
     render() {
-        console.log('--this.state.data', this.state.data)
-        const valute: object = this.state.data.Valute
-        const EUR: object = valute.EUR
+        const {EUR}: any = this.props.Valute
         return (
             <main>
                 <h1>call data and show</h1>
