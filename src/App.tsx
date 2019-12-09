@@ -1,26 +1,43 @@
 import * as React from "react"
 
-export interface MyProps {
-    data: object,
-    Valute: object,
-    EUR?: any
+interface IState {
+    data: {
+        [key: string]: IValutes
+    }
 }
 
-interface MyState {}
+interface IValutes {
+    [key: string]: {
+        Value: number
+    }
+}
 
-export default class App extends React.Component<MyProps, MyState> {
+export default class App extends React.Component<{}, IState> {
+    constructor(props: {}) {
+        super(props)
+        this.state = {
+            data: {
+                Valute: {
+                    EUR: {
+                        Value: 0
+                    },
+                    USD: {
+                        Value: 0
+                    }
+                }
+            }
+        }
+    }
 
-    componentDidMount(): void {
+    componentDidMount() {
         fetch('https://www.cbr-xml-daily.ru/daily_json.js', {
             method: 'get',
-            // mode: 'no-cors'
         })
             .then(result => result.json())
             .then(data => this.setState({data}))
     }
 
     render() {
-        const {EUR}: any = this.props.Valute
         return (
             <main>
                 <h1>call data and show</h1>
@@ -32,18 +49,46 @@ export default class App extends React.Component<MyProps, MyState> {
                         <td>Курс</td>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            {'EUR'}
-                        </td>
-                        <td>
-                            {EUR}
-                        </td>
-                    </tr>
-                    </tbody>
+
+                    <SmallTable
+                        eur={this.state.data.Valute.EUR.Value}
+                        usd={this.state.data.Valute.USD.Value}
+                    />
                 </table>
             </main>
         )
     }
+}
+
+type TableProps = {
+    eur: number,
+    usd: number
+}
+
+const SmallTable: React.FunctionComponent<TableProps> = (data) => {
+    return (
+        <tbody>
+        <tr>
+
+            <td>
+                EUR
+            </td>
+            <td>
+                {data.eur}
+            </td>
+
+        </tr>
+        <tr>
+
+            <td>
+                USD
+            </td>
+            <td>
+                {data.usd}
+            </td>
+
+        </tr>
+        </tbody>
+
+    )
 }
